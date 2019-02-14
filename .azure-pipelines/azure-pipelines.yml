@@ -1,14 +1,4 @@
-variables:
- # public
- - ${{ if eq(variables['System.TeamProject'], 'public') }}:
-   - name: connectionString
-     value: ''
- # internal
- - ${{ if ne(variables['System.TeamProject'], 'public') }}:
-   - group: AzureSDK KeyVault - AzConfig LiveTest
-   - name: connectionString
-     value: $(AzConfigConnection)
-
+# variables:
 jobs:
 - job: 'Publish'
 
@@ -41,18 +31,7 @@ jobs:
 
   steps:
     - task: DotNetCoreCLI@2
-      displayName: 'Test Mocks'
-      condition: eq(variables['System.TeamProject'], 'public')
-      inputs:
-        projects: '**/*.Test/*.csproj'
-        command: test
-        arguments: --filter TestCategory!=Live
-  
-    - task: DotNetCoreCLI@2
       displayName: 'Test'
-      condition: ne(variables['System.TeamProject'], 'public')
-      env:
-        AZ_CONFIG_CONNECTION: $(connectionString)
       inputs:
         projects: '**/*.Test/*.csproj'
         command: test
