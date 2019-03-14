@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <ProjectGuid>{8D1127BB-FE16-4D8C-9D52-436BAD27CBD5}</ProjectGuid>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="$(NUnitPackageVersion)" />
+    <PackageReference Include="NUnit3TestAdapter" Version="$(NUnit3TestAdapterPackageVersion)" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="System.Memory" Version="4.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Azure.Core.PI\Azure.Core.PI.csproj">
+      <Project>{FEC0AE57-E241-46DB-B7C7-9181F28E1D3F}</Project>
+      <Name>Azure.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
