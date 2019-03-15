@@ -17,11 +17,6 @@ namespace System.Numerics
         public PIDigits Digits => new PIDigits();
     }
 
-    public static class NumerocsExtensions
-    {
-        public static PI DivideBy(this C left, D right) => new PI();
-    }
-
     // circumference of a circle
     public ref struct C
     {
